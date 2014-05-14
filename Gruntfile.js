@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
@@ -76,7 +76,7 @@ module.exports = function(grunt) {
                 keepAlive: false,
                 configFile: 'test/protractor.conf.js',
                 args: {
-                    specs: [ 'test/e2e/*.js' ],
+                    specs: ['test/e2e/*.js'],
                 }
             },
             run: {},
@@ -115,48 +115,7 @@ module.exports = function(grunt) {
 
         jshint: {
             options: {
-                node: true,
-                browser: true,
-                esnext: true,
-                bitwise: true,
-                curly: true,
-                eqeqeq: true,
-                immed: true,
-                indent: 4,
-                latedef: true,
-                newcap: true,
-                noarg: true,
-                regexp: true,
-                undef: true,
-                unused: true,
-                trailing: true,
-                smarttabs: true,
-                globals: {
-                    angular: false,
-                    L: false,
-                    lvector: false,
-                    // Jasmine
-                    jasmine    : false,
-                    isCommonJS : false,
-                    exports    : false,
-                    spyOn      : false,
-                    it         : false,
-                    xit        : false,
-                    expect     : false,
-                    runs       : false,
-                    waits      : false,
-                    waitsFor   : false,
-                    beforeEach : false,
-                    afterEach  : false,
-                    describe   : false,
-                    xdescribe   : false,
-
-                    // Protractor
-                    protractor: false,
-                    browser: false,
-                    by: false,
-                    element: false
-                }
+                jshintrc: true
             },
             source: {
                 src: ['src/directives/*.js', 'src/services/*.js']
@@ -185,8 +144,8 @@ module.exports = function(grunt) {
                     'dist/angular-leaflet-directive.js': ['coverage']
                 },
                 coverageReporter: {
-                    type : 'lcov',
-                    dir : 'coverage/'
+                    type: 'lcov',
+                    dir: 'coverage/'
                 }
             }
         },
@@ -199,7 +158,7 @@ module.exports = function(grunt) {
         },
 
         watch: {
-            options : {
+            options: {
                 livereload: 7777
             },
             source: {
@@ -226,10 +185,10 @@ module.exports = function(grunt) {
 
         bower: {
             install: {
-              //  options: {
-              //      targetDir: './bower_components',
-              //      cleanup: true
-              //  }
+                //  options: {
+                //      targetDir: './bower_components',
+                //      cleanup: true
+                //  }
             }
         },
 
@@ -276,7 +235,7 @@ module.exports = function(grunt) {
     });
 
     //single run tests
-    grunt.registerTask('test', ['jshint','test:unit', 'test:e2e']);
+    grunt.registerTask('test', ['jshint', 'test:unit', 'test:e2e']);
     grunt.registerTask('test:unit', ['karma:unit']);
     grunt.registerTask('test:e2e', ['shell:protractor_update', 'connect:testserver', 'protractor:run']);
     grunt.registerTask('test:e2e-firefox', ['shell:protractor_update', 'connect:testserver', 'protractor:firefox']);
