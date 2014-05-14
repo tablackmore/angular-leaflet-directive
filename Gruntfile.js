@@ -162,15 +162,7 @@ module.exports = function (grunt) {
                 livereload: 7777
             },
             source: {
-                files: ['src/**/*.js', 'test/unit/**.js', 'test/e2e/**.js'],
-                tasks: [
-                    'jshint',
-                    'concat:dist',
-                    'ngmin',
-                    'uglify',
-                    'test:unit',
-                    'concat:license'
-                ]
+                files: ['src/**/*.js', 'test/unit/**.js', 'test/e2e/**.js']
             }
         },
 
@@ -248,7 +240,7 @@ module.exports = function (grunt) {
     grunt.registerTask('install', ['shell:npm_install', 'bower:install', 'shell:protractor_update']);
 
     //defaults
-    grunt.registerTask('default', ['watch:source']);
+    grunt.registerTask('default', ['jshint', 'concat:dist', 'ngmin', 'uglify', 'test:unit', 'concat:license', 'watch:source']);
 
     //development
     grunt.registerTask('dev', ['connect:devserver', 'open:devserver', 'watch:source']);
