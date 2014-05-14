@@ -1223,7 +1223,6 @@
               angular.extend(newDefaults.controls, userDefaults.controls);
             }
             if (isObject(userDefaults.crs)) {
-              console.log('Object ', userDefaults.crs);
               newDefaults.crs = userDefaults.crs;
             } else if (isDefined(L.CRS[userDefaults.crs])) {
               newDefaults.crs = L.CRS[userDefaults.crs];
